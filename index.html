@@ -564,11 +564,6 @@
 
         const SHEET_URL = 'https://opensheet.elk.sh/1zsPu7tfVchtbQVO6n7HAFhSPzyf3gjd60R-ikMR1aNI/Sheet1';
 
-        function handleInterest(name, price) {
-            alert(`Interest received for: ${name} - ${price}`);
-            // You can add form/modal/email logic here
-        }
-
         fetch(SHEET_URL)
             .then(response => response.json())
             .then(data => {
