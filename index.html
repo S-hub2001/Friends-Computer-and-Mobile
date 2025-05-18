@@ -1,590 +1,875 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friends Computer and Mobile</title>
+    <title>Friends Computer and Mobile - Hot Deals in Dujipur!</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        // Tailwind CSS Dark Mode Configuration
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            light: '#3B82F6', // Blue 500
+                            DEFAULT: '#2563EB', // Blue 600
+                            dark: '#1D4ED8'  // Blue 700
+                        },
+                        secondary: {
+                            light: '#10B981', // Emerald 500
+                            DEFAULT: '#059669', // Emerald 600
+                            dark: '#047857'  // Emerald 700
+                        },
+                        neutral: {
+                            light: '#F3F4F6', // Gray 100
+                            DEFAULT: '#6B7280', // Gray 500
+                            dark: '#1F2937',  // Gray 800
+                            darker: '#111827' // Gray 900
+                        },
+                        accent: {
+                            DEFAULT: '#F59E0B', // Amber 500
+                            dark: '#D97706' // Amber 600
+                        },
+                        highlight: { // For special offer emphasis
+                            DEFAULT: '#EF4444', // Red 500
+                            dark: '#DC2626' // Red 600
+                        },
+                        whatsapp: '#25D366', // WhatsApp Green
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #1a202c;
-            /* Dark background */
-            color: #e2e8f0;
-            /* Light text */
-        }
-
-        .section-title {
-            font-size: 2.25rem;
-            /* 36px */
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            /* 24px */
-            text-align: center;
-        }
-
-        .card {
-            background-color: #2d3748;
-            /* Slightly lighter dark */
-            border-radius: 0.75rem;
-            /* 12px */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            /* 8px */
-            font-weight: 600;
-            text-align: center;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background-color: #4299e1;
-            /* Blue accent */
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #3182ce;
-            transform: scale(1.05);
-        }
-
-        .btn-secondary {
-            background-color: #4a5568;
-            /* Darker gray */
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background-color: #2d3748;
-            transform: scale(1.05);
-        }
-
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-
-        .floating-whatsapp:hover {
-            transform: scale(1.1);
-        }
-
-        .map-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding-top: 56.25%;
-            /* 16:9 Aspect Ratio */
-            border-radius: 0.75rem;
-        }
-
-        .map-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* Smooth scroll (though nav is removed, keeping for potential future use) */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Custom scrollbar */
+        /* Custom scrollbar for webkit browsers */
         ::-webkit-scrollbar {
             width: 8px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #2d3748;
+            background: #f1f1f1;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #4a5568;
+            background: #888;
             border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .dark ::-webkit-scrollbar-track {
+            background: #2d3748;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+        }
+
+        .dark ::-webkit-scrollbar-thumb:hover {
             background: #718096;
         }
 
-        /* Styles for the image slider */
-        .slider-slide {
-            flex-shrink: 0;
-            /* Prevent slides from shrinking when in flex container */
+        /* Basic transition for theme switch */
+        body,
+        .bg-white,
+        .bg-gray-800,
+        .text-gray-900,
+        .text-white {
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         }
 
-        .slider-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            /* Semi-transparent white */
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+        /* Updated Section Title and Subtitle for better spacing */
+        .section-title {
+            @apply text-3xl sm:text-4xl font-extrabold text-center mb-4 text-gray-800 dark:text-white;
+            /* Increased bottom margin */
         }
 
-        .slider-dot.active {
-            background-color: white;
-            /* Active dot color */
+        .section-subtitle {
+            @apply text-lg text-center text-gray-600 dark:text-gray-300 mb-12 sm:mb-20 max-w-2xl mx-auto;
+            /* Increased bottom margin */
+        }
+
+        .card {
+            /* General card styling */
+            @apply bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col;
+        }
+
+        .btn {
+            @apply px-6 py-3 rounded-lg font-semibold text-white transition-colors duration-300 text-base inline-flex items-center justify-center;
+            /* Added flex for icon alignment */
+        }
+
+        .btn-primary {
+            @apply bg-primary hover:bg-primary-dark;
+        }
+
+        .btn-secondary {
+            @apply bg-secondary hover:bg-secondary-dark;
+        }
+
+        .btn-accent {
+            /* For "Grab Deal" buttons - now "Interested?" */
+            @apply bg-highlight dark:bg-highlight-dark hover:bg-opacity-80 dark:hover:bg-opacity-80 text-white font-bold py-3 px-6;
+        }
+
+        .btn-whatsapp {
+            @apply bg-whatsapp hover:bg-green-600 text-white;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .offer-card {
+            /* Specific styling for offer cards */
+            @apply bg-white dark:bg-neutral-darker p-5 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out flex flex-col transform hover:-translate-y-1;
+        }
+
+        .offer-price {
+            @apply text-3xl font-bold text-highlight dark:text-highlight-dark mr-2;
+        }
+
+        .original-price {
+            @apply text-lg text-gray-500 dark:text-gray-400 line-through;
+        }
+
+        .emi-info {
+            @apply text-sm text-green-600 dark:text-green-400 font-semibold mt-1 mb-4;
+        }
+
+        .testimonial-card {
+            @apply bg-white dark:bg-neutral-darker p-6 sm:p-8 rounded-xl shadow-lg;
+        }
+
+        .video-placeholder {
+            @apply w-full aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400;
+        }
+
+        /* Animation for Hot Offer Titles */
+        .hot-offer-title-animation {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.02);
+            }
+        }
+
+        /* WhatsApp icon style */
+        .whatsapp-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
         }
     </style>
 </head>
 
-<body class="antialiased">
+<body class="bg-neutral-light dark:bg-neutral-dark text-neutral-DEFAULT dark:text-neutral-light font-sans antialiased">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="whatsapp-logo" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.35 3.43 16.84L2.05 22L7.31 20.64C8.76 21.42 10.37 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 6.45 17.5 2 12.04 2M12.04 3.64C16.57 3.64 20.31 7.38 20.31 11.91C20.31 16.44 16.57 20.18 12.04 20.18C10.52 20.18 9.07 19.77 7.82 19L7.43 18.78L4.5 19.55L5.32 16.73L5.08 16.32C4.19 14.99 3.77 13.48 3.77 11.91C3.77 7.38 7.51 3.64 12.04 3.64M16.59 14.82C16.36 14.71 15.29 14.18 15.08 14.1C14.88 14.02 14.73 13.98 14.58 14.22C14.43 14.47 13.98 15.01 13.83 15.17C13.68 15.32 13.53 15.36 13.29 15.25C13.04 15.14 12.23 14.86 11.28 14.02C10.52 13.35 10.02 12.53 9.88 12.28C9.73 12.03 9.85 11.89 9.98 11.77C10.09 11.65 10.24 11.46 10.37 11.31C10.5 11.16 10.54 11.04 10.62 10.89C10.7 10.74 10.66 10.61 10.58 10.53C10.51 10.45 10.02 9.21 9.83 8.73C9.64 8.26 9.45 8.32 9.31 8.32C9.17 8.32 9.02 8.32 8.87 8.32C8.72 8.32 8.49 8.39 8.29 8.64C8.09 8.89 7.5 9.42 7.5 10.41C7.5 11.4 8.33 12.32 8.45 12.48C8.57 12.63 10.02 14.91 12.29 15.79C12.81 16.01 13.21 16.14 13.51 16.23C13.99 16.37 14.39 16.34 14.71 16.29C15.07 16.23 16.14 15.68 16.36 15.57C16.59 15.46 16.82 15.38 16.88 15.25C16.94 15.11 16.82 14.93 16.59 14.82Z" />
+        </symbol>
+    </svg>
 
-    <header class="bg-gray-900 shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="https://scontent.fccu1-2.fna.fbcdn.net/v/t39.30808-6/302505951_410146504560747_1235038294138695667_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=4CzzXK1-KgUQ7kNvwGtZnIi&_nc_oc=AdlUl3dquUbqJcT1ir76-2C4pMfU1BH4whBphhMh8BFW_asSgfo7ziBXPuLPr4Tf7-Q&_nc_zt=23&_nc_ht=scontent.fccu1-2.fna&_nc_gid=7J01pH7RLXOS6CAasNWpRw&oh=00_AfJW3EiV_z_VB1KmkIwTkryWmihYBjcXY8U9nFoZ-MdlOg&oe=6828FDEB"
-                    alt="Friends Computer and Mobile Logo" class="h-10 mr-3 rounded"
-                    onerror="this.onerror=null;this.src='https://placehold.co/100x40/1a202c/e2e8f0?text=Logo';this.classList.add('p-1', 'border', 'border-gray-600');">
-                <h1 class="text-xl md:text-2xl font-bold text-white" data-lang-key="shopName">Friends Computer and
-                    Mobile</h1>
-            </div>
-            <div class="flex items-center">
-                <button id="langToggle" class="btn btn-secondary text-sm px-3 py-1.5">
-                    <span data-lang-key="langSwitchToBengali">বাংলা</span>
-                </button>
+    <header class="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold text-primary dark:text-primary-light">
+                        Friends Computer & Mobile
+                    </a>
+                </div>
+
+                <div class="flex items-center">
+                    <button id="darkModeToggle"
+                        class="p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+                        <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m8.66-15.66l-.707.707M4.04 19.96l-.707.707M21 12h-1M4 12H3m15.66 8.66l-.707-.707M4.04 4.04l-.707-.707" />
+                        </svg>
+                        <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
-    <section id="about" class="py-12 md:py-16 px-4 sm:px-6 lg:px-8">
-        <div class="container mx-auto text-center">
-            <h2 class="section-title" data-lang-key="welcomeTitle">Welcome to Friends Computer and Mobile</h2>
-            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto" data-lang-key="shopDescription">
-                Your one-stop shop for smartphones, computers, laptops, printers, and all kinds of accessories. We
-                provide reliable repair services and exciting EMI options.
-            </p>
-        </div>
-    </section>
-
-    <section id="gallery-section" class="pt-8 pb-12 md:pt-12 md:pb-16 bg-gray-800">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="section-title mb-8" data-lang-key="galleryTitle">Our Shop Gallery</h3>
-        </div>
-        <div id="shopImageSlider" class="relative overflow-hidden shadow-xl w-full">
-            <div class="slider-track flex transition-transform duration-500 ease-in-out bg-black">
-                <div class="slider-slide min-w-full">
-                    <img src="https://scontent.fccu1-2.fna.fbcdn.net/v/t39.30808-6/475459180_933863075522418_282677290800217435_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=VWqoopLiCGYQ7kNvwHtOHwb&_nc_oc=Adkd5rKhIA-J_7H4733FwUxnGcmGGfizFJ6Qwg3g5SYuKwQjMZLVwjz7RQM528GFja0&_nc_zt=23&_nc_ht=scontent.fccu1-2.fna&_nc_gid=adYA5JWS5LtdDNF-QdcGVQ&oh=00_AfKyBMTFIQSlCynNK3Qoo3a8mnDeu5dumScWYdGDPvnL9Q&oe=6828F748"
-                        alt="Shop interior view 1"
-                        class="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] object-cover"
-                        onerror="this.onerror=null;this.src='https://placehold.co/1200x600/1a202c/e2e8f0?text=Shop+Image+1';">
-                </div>
-                <div class="slider-slide min-w-full">
-                    <img src="https://scontent.fccu1-2.fna.fbcdn.net/v/t39.30808-6/475998060_938292468412812_8139383652976471099_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=vv4AkRfQDLkQ7kNvwHBqoLI&_nc_oc=AdkeUJ3vzrSsfkd_ZfM_osyFEjH1aYFXdNAu2WHZAQDR7hOhVgmlSZA9KcT8dviHpiw&_nc_zt=23&_nc_ht=scontent.fccu1-2.fna&_nc_gid=Z-05zB5ExcPo61jw9uigZA&oh=00_AfKglaVICw1981gpDHqGTAzPsNU7JTiJduaT1Ic2RX6sqA&oe=6828F0E5"
-                        alt="Shop display and products"
-                        class="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] object-cover"
-                        onerror="this.onerror=null;this.src='https://placehold.co/1200x600/1a202c/e2e8f0?text=Shop+Image+2';">
-                </div>
-                <div class="slider-slide min-w-full">
-                    <img src="https://scontent.fccu1-2.fna.fbcdn.net/v/t39.30808-6/476113112_938845671690825_2435126185657259920_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=PNPTU4LnyP4Q7kNvwG2EYaf&_nc_oc=AdmFcUxcdWKHhNuOVqxop2e0YWk_KwH5MyJmRt3Q1j5rMX9P-m-qSYu52WA4DZ0oC-Q&_nc_zt=23&_nc_ht=scontent.fccu1-2.fna&_nc_gid=Xq0lVQvbuOehjX9_RpQljA&oh=00_AfI9pqGPr0nz4dXiuD96QHOaiZiHvYceDHAhkN0FTzcaag&oe=6828EA74"
-                        alt="Shop counter and accessories"
-                        class="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] object-cover"
-                        onerror="this.onerror=null;this.src='https://placehold.co/1200x600/1a202c/e2e8f0?text=Shop+Image+3';">
-                </div>
-                <div class="slider-slide min-w-full">
-                    <img src="https://scontent.fccu1-2.fna.fbcdn.net/v/t39.30808-6/475310343_932585495650176_5025557797139740464_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=HLoBURlqfUEQ7kNvwHAxIMA&_nc_oc=AdlLL7iqubXHnWL6XW3ZohJ5dH8DaSg2JHATSsa5kMWrl_X5-vXtSqbktIT5Fp5nG1U&_nc_zt=23&_nc_ht=scontent.fccu1-2.fna&_nc_gid=6UUPjFd7vsZJ6h8E0MOLYA&oh=00_AfJrrlPwIfu2sTWY5twTjsmSKzo8GyCceKXla13EtmBOrw&oe=68290014"
-                        alt="Another view of shop interior"
-                        class="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] object-cover"
-                        onerror="this.onerror=null;this.src='https://placehold.co/1200x600/1a202c/e2e8f0?text=Shop+Image+4';">
-                </div>
+    <main>
+        <section id="home"
+            class="bg-gradient-to-br from-primary via-primary-dark to-neutral-darker dark:from-primary-dark dark:via-neutral-darker dark:to-black py-20 md:py-32">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1
+                    class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6 hot-offer-title-animation">
+                    <span class="text-yellow-300">UNBEATABLE</span> DEALS AWAIT!
+                </h1>
+                <p class="text-xl md:text-2xl text-indigo-100 dark:text-indigo-200 mb-10 max-w-3xl mx-auto">
+                    Massive discounts on Mobiles, Laptops, Home Appliances & More. Flexible <strong
+                        class="text-yellow-300">EMI Options</strong> available!
+                </p>
+                <a href="#hot-offers" class="btn btn-accent text-lg px-10 py-4 shadow-lg transform hover:scale-105">
+                    <span role="img" aria-label="fire emoji" class="mr-2">🔥</span> Explore Hot Offers NOW <span
+                        role="img" aria-label="fire emoji" class="ml-2">🔥</span>
+                </a>
+                <a href="#contact"
+                    class="ml-0 mt-4 sm:mt-0 sm:ml-4 btn bg-white text-primary hover:bg-gray-100 text-lg px-8 py-4 inline-block">Contact
+                    Us</a>
             </div>
+        </section>
+        <section id="hot-offers" class="py-16 md:py-24 bg-gray-100 dark:bg-neutral-dark">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">
+                    <span class="text-highlight dark:text-highlight-dark">MEGA SALE</span> – Limited Time Offers!
+                </h2>
+                <p class="section-subtitle">
+                    Grab the best deals in Dujipur before they're gone! Easy EMI on all major products.
+                </p>
 
-            <button id="sliderPrevBtn" aria-label="Previous slide"
-                class="absolute top-1/2 left-4 sm:left-6 md:left-8 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 md:p-3 rounded-full hover:bg-opacity-60 focus:outline-none focus:ring-2 focus:ring-blue-400 z-10 transition-opacity">
-                <i class="fas fa-chevron-left fa-lg"></i>
-            </button>
-            <button id="sliderNextBtn" aria-label="Next slide"
-                class="absolute top-1/2 right-4 sm:right-6 md:right-8 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 md:p-3 rounded-full hover:bg-opacity-60 focus:outline-none focus:ring-2 focus:ring-blue-400 z-10 transition-opacity">
-                <i class="fas fa-chevron-right fa-lg"></i>
-            </button>
+                <br>
+                <br>
 
-            <div id="sliderDots"
-                class="absolute bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-3 z-10">
-            </div>
-        </div>
-    </section>
-
-    <section id="offers" class="py-12 md:py-20 bg-gray-800 px-4 sm:px-6 lg:px-8">
-        <div class="container mx-auto">
-            <h2 class="section-title" data-lang-key="hotOffers">Hot Offers</h2>
-            <div id="offers-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Offers will be injected here dynamically -->
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
-        <div class="container mx-auto">
-            <h2 class="section-title" data-lang-key="ourServices">Our Services</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card p-6 text-center">
-                    <i class="fas fa-mobile-alt fa-3x text-blue-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2" data-lang-key="serviceSmartphones">Smartphones & Computers
+                <!-- Top Mobile Deals -->
+                <div class="mb-16">
+                    <h3
+                        class="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-2 flex items-center justify-center sm:justify-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3 text-primary" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                        Top Mobile Deals
                     </h3>
-                    <p data-lang-key="serviceSmartphonesDesc">Latest models of smartphones, laptops, and desktop
-                        computers.</p>
-                </div>
-                <div class="card p-6 text-center">
-                    <i class="fas fa-print fa-3x text-blue-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2" data-lang-key="servicePrinters">Printers & Accessories</h3>
-                    <p data-lang-key="servicePrintersDesc">Wide range of printers and computer accessories.</p>
-                </div>
-                <div class="card p-6 text-center">
-                    <i class="fas fa-tools fa-3x text-blue-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2" data-lang-key="serviceRepairs">Repair Services</h3>
-                    <p data-lang-key="serviceRepairsDesc">Expert repair for laptops, computers, and mobiles.</p>
-                </div>
-                <div class="card p-6 text-center">
-                    <i class="fas fa-wallet fa-3x text-blue-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2" data-lang-key="serviceEMI">EMI Options</h3>
-                    <p data-lang-key="serviceEMIDesc">Flexible EMI options available on various products.</p>
-                </div>
-                <div class="card p-6 text-center">
-                    <i class="fas fa-cogs fa-3x text-blue-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2" data-lang-key="serviceCustomPC">Custom PC Builds</h3>
-                    <p data-lang-key="serviceCustomPCDesc">We build custom PCs tailored to your needs.</p>
-                </div>
-                <div class="card p-6 text-center">
-                    <i class="fas fa-home fa-3x text-blue-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2" data-lang-key="serviceHomeElectronics">Home Electronics</h3>
-                    <p data-lang-key="serviceHomeElectronicsDesc">WiFi routers, CCTV, speakers, smart lights, and more.
+                    <p class="text-md text-center sm:text-left text-gray-600 dark:text-gray-400 mb-8">
+                        Latest smartphones at incredible prices.
                     </p>
+                    <div id="mobile-deals"
+                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"></div>
+                </div>
+
+                <!-- Computers & Laptops -->
+                <div class="mb-16">
+                    <h3
+                        class="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-2 flex items-center justify-center sm:justify-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3 text-secondary" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        Computers & Laptops on Sale
+                    </h3>
+                    <p class="text-md text-center sm:text-left text-gray-600 dark:text-gray-400 mb-8">
+                        Power up your work and play with these deals.
+                    </p>
+                    <div id="computer-deals"
+                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"></div>
+                </div>
+
+                <!-- Home Appliance Discounts -->
+                <div class="mb-16">
+                    <h3
+                        class="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-2 flex items-center justify-center sm:justify-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3 text-accent" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Home Appliance Discounts
+                    </h3>
+                    <p class="text-md text-center sm:text-left text-gray-600 dark:text-gray-400 mb-8">
+                        Upgrade your home with smart and efficient appliances.
+                    </p>
+                    <div id="home-appliance-deals"
+                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"></div>
+                </div>
+
+                <!-- Essential Accessories -->
+                <div class="mb-16">
+                    <h3
+                        class="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-2 flex items-center justify-center sm:justify-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3 text-pink-500" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                        Essential Accessories
+                    </h3>
+                    <p class="text-md text-center sm:text-left text-gray-600 dark:text-gray-400 mb-8">
+                        Routers, Speakers, Smart Lights & More.
+                    </p>
+                    <div id="essential-accessories-deals"
+                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"></div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="services" class="py-16 md:py-24 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Our Expert Services</h2>
+                <p class="section-subtitle">Beyond sales, we provide reliable tech support and solutions.</p>
+                <br>
+                <br>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card text-center">
+                        <div
+                            class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-primary-light/20 dark:bg-primary-dark/30 mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary dark:text-primary-light"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Device Repair</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Expert repair for laptops, computers, and mobiles.
+                            Quick turnaround, reliable service.</p>
+                    </div>
+                    <div class="card text-center">
+                        <div
+                            class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-secondary-light/20 dark:bg-secondary-dark/30 mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-8 w-8 text-secondary dark:text-secondary-light" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Custom PC Builds</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Tailor-made PCs for gaming, professional work, or
+                            specific needs. Built with quality components.</p>
+                    </div>
+                    <div class="card text-center">
+                        <div
+                            class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-yellow-400/20 dark:bg-yellow-500/30 mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500 dark:text-yellow-400"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Easy EMI Facility</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Flexible payment plans to make your dream tech
+                            purchases more affordable.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="py-12 md:py-20 bg-gray-800 px-4 sm:px-6 lg:px-8">
-        <div class="container mx-auto">
-            <h2 class="section-title" data-lang-key="contactUs">Contact Us</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                <div class="card p-6">
-                    <h3 class="text-2xl font-semibold mb-4" data-lang-key="getInTouch">Get in Touch</h3>
-                    <p class="mb-2"><strong data-lang-key="contactPerson">Contact Person:</strong> Sujit Baram</p>
-                    <p class="mb-2"><strong data-lang-key="phone">Phone:</strong> <a href="tel:+918967992203"
-                            class="text-blue-400 hover:underline">8967992203</a></p>
-                    <p class="mb-4"><strong data-lang-key="address">Address:</strong> Jamna Barbatia Road, Dujipur, West
-                        Bengal 721140</p>
+        <section id="about" class="py-16 md:py-24 bg-gray-50 dark:bg-neutral-darker">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:flex lg:items-center lg:justify-between">
+                    <div class="lg:w-1/2">
+                        <h2 class="text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl mb-4"> About Friends
+                            Computer & Mobile
+                        </h2>
+                        <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+                            We are your one-stop shop for all things tech in Jamna Barbatia Road, Dujipur. Our mission
+                            is to provide reliable products, expert services, and friendly customer support. Whether
+                            you're looking to buy a new device, get something repaired, or build a custom PC, we're here
+                            to help.
+                        </p>
+                        <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+                            Contact Person: <strong class="text-primary dark:text-primary-light">Sujit Baram</strong>
+                        </p>
+                    </div>
+                    <div class="mt-10 lg:mt-0 lg:w-2/5 relative overflow-hidden rounded-xl shadow-xl">
+                        <!-- Slides wrapper -->
+                        <div id="storeCarousel" class="whitespace-nowrap transition-transform duration-500">
+                            <img class="inline-block w-full h-auto"
+                                src="https://scontent.fccu1-2.fna.fbcdn.net/v/t39.30808-6/475998060_938292468412812_8139383652976471099_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=QpryPkvFpa0Q7kNvwGSxtpq&_nc_oc=AdlbBsUmjnwAsesR_Eb7IFpC7nZ3wtVlnfvdR7vwpli1H2plDpv-2tQDmrje6mNccKE&_nc_zt=23&_nc_ht=scontent.fccu1-2.fna&_nc_gid=0n5nwWC63Jgi0cMuRyKUKQ&oh=00_AfIu3HsENpqG6bDTSFXNjYp9xdGD77CRHlMNSH442ag7Nw&oe=682F5025"
+                                alt="Store 1"
+                                onerror="this.src='https://placehold.co/600x450/cccccc/333333?text=Image+Not+Found'">
+                            <img class="inline-block w-full h-auto"
+                                src="https://scontent.fccu1-2.fna.fbcdn.net/v/t39.30808-6/475310343_932585495650176_5025557797139740464_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=U4ubTONvWJwQ7kNvwFm5fU4&_nc_oc=AdmBprZQhqvJX2CpsQ2nGK4946yDlt5DJDUqr6JHfquNfZnZbBECeq_fnj_oH7Zbpco&_nc_zt=23&_nc_ht=scontent.fccu1-2.fna&_nc_gid=qS3mKeGH4HsPelH3yG9RGQ&oh=00_AfLPDlx938QKZiq1gEae1-51pV16RN1njH7o-aFh2iZZkA&oe=682F5F54"
+                                alt="Store 2"
+                                onerror="this.src='https://placehold.co/600x450/cccccc/333333?text=Image+Not+Found'">
+                            <img class="inline-block w-full h-auto"
+                                src="https://scontent.fccu1-2.fna.fbcdn.net/v/t39.30808-6/475012308_932584738983585_6882177580227951700_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=aHyaa1wzgmsQ7kNvwFx6mDe&_nc_oc=AdkvKmkXp3_y1ZszBKbb3Tbtmu0NYg17V6W1vgZ-RV7RA2B6tXwnLuPuVrDh-_XsOOM&_nc_zt=23&_nc_ht=scontent.fccu1-2.fna&_nc_gid=hh6TRsdf2_KI9wzerjC4iQ&oh=00_AfKTn49BtYLhmRoBULvET01RMH_--OvbiXUmWxoTXxWWTA&oe=682F5CFC"
+                                alt="Store 3"
+                                onerror="this.src='https://placehold.co/600x450/cccccc/333333?text=Image+Not+Found'">
+                            <img class="inline-block w-full h-auto"
+                                src="https://scontent.fccu1-2.fna.fbcdn.net/v/t39.30808-6/475513209_932584798983579_531601642926324442_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=TFVg8BjLrXEQ7kNvwHpbjK4&_nc_oc=AdmP5G8e-KGtMSnCvQ8wip1TlxOcvLLQul4AiksiDm1MZWx-vg2PIUaZo93VAu8-OoI&_nc_zt=23&_nc_ht=scontent.fccu1-2.fna&_nc_gid=Qv4fy-RpTYVVMcto4IE2Lg&oh=00_AfJ-JcBHIMXzFd8sOdKRGpdpsRZFWqDxaPD8tl6uhf-poA&oe=682F3A49"
+                                alt="Store 4"
+                                onerror="this.src='https://placehold.co/600x450/cccccc/333333?text=Image+Not+Found'">
+                            <img class="inline-block w-full h-auto"
+                                src="https://scontent.fccu1-2.fna.fbcdn.net/v/t39.30808-6/476006726_938292821746110_6981423265457548509_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=-vi1YEADUz4Q7kNvwEMMaa5&_nc_oc=AdkjegMbyxHHIrVcTSfzpYOgFGSBB53dNvrMROuBhTFbj7LN1JieerTjcIxWMi6GGDg&_nc_zt=23&_nc_ht=scontent.fccu1-2.fna&_nc_gid=ePr6dhAGbHmJWdn0SosqMQ&oh=00_AfKebmUZ-f1rd0sfys94dPgt-NISBMVGIrETywNtkh30QQ&oe=682F447D"
+                                alt="Store 5"
+                                onerror="this.src='https://placehold.co/600x450/cccccc/333333?text=Image+Not+Found'">
+                        </div>
+                    </div>
 
-                    <h4 class="text-xl font-semibold mt-6 mb-3" data-lang-key="connectWithUs">Connect With Us</h4>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/Friendscomputerandmobile" target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-gray-400 hover:text-blue-500 transition duration-300 text-2xl">
-                            <i class="fab fa-facebook-square"></i>
-                        </a>
-                        <a href="https://api.whatsapp.com/send?phone=%2B918967992203" target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-gray-400 hover:text-green-500 transition duration-300 text-2xl">
-                            <i class="fab fa-whatsapp-square"></i>
-                        </a>
+                    <script>
+                            (function () {
+                                const carousel = document.getElementById('storeCarousel');
+                                const slides = carousel.children.length;
+                                let idx = 0;
+
+                                setInterval(() => {
+                                    idx = (idx + 1) % slides;
+                                    carousel.style.transform = `translateX(-${idx * 100}%)`;
+                                }, 3000);
+                            })();
+                    </script>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-16 md:py-24 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Hear From Our Happy Clients!</h2>
+                <p class="section-subtitle">We value our customers and their feedback. See what they’re saying!</p>
+                <br>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow">
+                        <div class="flex text-yellow-400 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 dark:text-gray-600"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 dark:text-gray-600"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 dark:text-gray-600"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 dark:text-gray-600"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic mb-3">“Amazing deals and fantastic support
+                            from Sujit! Got my dream gaming PC.”</p>
+                        <p class="font-semibold text-gray-800 dark:text-white">– Rohan M.</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Gaming Enthusiast</p>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow">
+                        <div class="flex text-yellow-400 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 dark:text-gray-600"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 dark:text-gray-600"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 dark:text-gray-600"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 dark:text-gray-600"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic mb-3">“Best mobile repair service in Dujipur.
+                            My phone screen was fixed in no time, and at a great price.”</p>
+                        <p class="font-semibold text-gray-800 dark:text-white">– Anita B.</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Local Customer</p>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow">
+                        <div class="flex text-yellow-400 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 dark:text-gray-600"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 dark:text-gray-600"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 dark:text-gray-600"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 dark:text-gray-600"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic mb-3">“Bought all my home appliances from here
+                            on EMI. Smooth process and great products!”</p>
+                        <p class="font-semibold text-gray-800 dark:text-white">– S. Das</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Home Maker</p>
                     </div>
                 </div>
 
-                <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4600.041696678566!2d87.5009061760362!3d22.294287143112054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1d4bb03703760f%3A0x58a6b4102f572595!2sFriends%20Computer%20and%20Mobile!5e1!3m2!1sen!2sin!4v1747151301507!5m2!1sen!2sin"
-                        style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- YouTube channel link -->
+                <div class="mt-12 text-center">
+                    <a href="https://www.youtube.com/@souvikdas7767" target="_blank"
+                        class="inline-flex items-center text-red-600 hover:text-red-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M23.498 6.186a2.965 2.965 0 00-2.088-2.1C19.666 3.5 12 3.5 12 3.5s-7.666 0-9.41.586a2.965 2.965 0 00-2.088 2.1A30.08 30.08 0 000 12a30.08 30.08 0 00.502 5.814 2.965 2.965 0 002.088 2.1c1.744.586 9.41.586 9.41.586s7.666 0 9.41-.586a2.965 2.965 0 002.088-2.1A30.08 30.08 0 0024 12a30.08 30.08 0 00-.502-5.814zM9.75 15.02V8.98l6.13 3.02-6.13 3.02z" />
+                        </svg>
+                        Watch more on our YouTube channel
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="bg-gray-900 text-center py-8 px-4 sm:px-6 lg:px-8">
-        <p class="text-gray-400">© <span id="currentYear"></span> <span data-lang-key="shopNameFooter">Friends Computer
-                and Mobile</span>. <span data-lang-key="rightsReserved">All Rights Reserved.</span></p>
+
+        <section id="contact" class="py-16 md:py-24 bg-gray-50 dark:bg-neutral-darker">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Get In Touch or Visit Us!</h2>
+                <p class="section-subtitle">Have questions about our deals, EMI, or services? Contact Sujit Baram today
+                    or drop by our store.</p>
+                <br>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Send a Message / Order
+                            Inquiry</h3>
+                        <form id="whatsappContactForm" class="space-y-6">
+                            <div>
+                                <label for="contactName"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300">Full Name</label>
+                                <input type="text" name="contactName" id="contactName" required
+                                    class="mt-1 block w-full px-3 py-2.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="contactMessage"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300">Message /
+                                    Product(s) of Interest</label>
+                                <textarea id="contactMessage" name="contactMessage" rows="4" required
+                                    class="mt-1 block w-full px-3 py-2.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                                    placeholder="Mention the product(s) you are interested in, or your repair query."></textarea>
+                            </div>
+                            <div class="max-w-sm mx-auto mt-8">
+                                <button type="submit"
+                                    class="w-full btn btn-whatsapp flex items-center justify-center gap-2 rounded-xl px-6 py-4 text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300">
+                                    <svg class="whatsapp-icon text-white" aria-hidden="true">
+                                        <use xlink:href="#whatsapp-logo"></use>
+                                    </svg>
+                                    Send via WhatsApp
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Our Shop Details</h3>
+                            <p class="text-lg text-gray-600 dark:text-gray-300">
+                                <strong class="font-medium">Contact Person:</strong> Sujit Baram<br>
+                                <strong class="font-medium">Phone:</strong> <a href="tel:+918967992203"
+                                    class="text-primary dark:text-primary-light hover:underline">8967992203</a> (Click
+                                to Call)<br>
+                                <strong class="font-medium">WhatsApp:</strong> <a
+                                    href="https://api.whatsapp.com/send?phone=+918967992203&text=Hello%20Friends%20Computer%20%26%20Mobile!"
+                                    target="_blank"
+                                    class="text-green-500 dark:text-green-400 hover:underline">8967992203</a> (Click to
+                                Chat)<br>
+                                <strong class="font-medium">Address:</strong> Jamna Barbatia Road, Dujipur, West Bengal
+                                721140
+                            </p>
+                        </div>
+
+                        <div class="flex space-x-4">
+                            <a href="https://www.facebook.com/Friendscomputerandmobile" target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light p-2 bg-gray-100 dark:bg-gray-700 rounded-full transition-colors">
+                                <span class="sr-only">Facebook</span>
+                                <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            <a href="https://api.whatsapp.com/send?phone=+918967992203&text=Hello%20Friends%20Computer%20%26%20Mobile!"
+                                target="_blank" rel="noopener noreferrer"
+                                class="text-gray-500 dark:text-gray-400 hover:text-green-500 dark:hover:text-green-400 p-2 bg-gray-100 dark:bg-gray-700 rounded-full transition-colors">
+                                <span class="sr-only">WhatsApp</span>
+                                <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <use xlink:href="#whatsapp-logo"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Find Us Here</h3>
+                            <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4600.041696678566!2d87.5009061760362!3d22.294287143112054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1d4bb03703760f%3A0x58a6b4102f572595!2sFriends%20Computer%20and%20Mobile!5e1!3m2!1sen!2sin!4v1747133785466!5m2!1sen!2sin"
+                                    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Google Map of Friends Computer and Mobile"
+                                    onerror="this.outerHTML='<div class=\'video-placeholder\'><p>Map could not be loaded. Please verify embed URL.</p></div>'"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 dark:bg-black text-gray-300 dark:text-gray-400 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-4">
+                <a href="#hot-offers" class="inline-block mx-2 hover:text-white">Hot Offers</a> |
+                <a href="#services" class="inline-block mx-2 hover:text-white">Services</a> |
+                <a href="#about" class="inline-block mx-2 hover:text-white">About Us</a> |
+                <a href="#contact" class="inline-block mx-2 hover:text-white">Contact</a>
+            </div>
+            <div class="mb-4">
+                <a href="https://www.facebook.com/Friendscomputerandmobile" target="_blank" rel="noopener noreferrer"
+                    class="inline-block mx-2 hover:text-white">Facebook</a> |
+                <a href="https://api.whatsapp.com/send?phone=+918967992203&text=Hello%20Friends%20Computer%20%26%20Mobile!"
+                    target="_blank" rel="noopener noreferrer" class="inline-block mx-2 hover:text-white">WhatsApp</a>
+            </div>
+            <p class="text-sm">
+                © <span id="currentYear"></span> Friends Computer and Mobile. All rights reserved.
+            </p>
+            <p class="text-xs mt-1">
+                Jamna Barbatia Road, Dujipur, West Bengal 721140
+            </p>
+            <p class="text-xs mt-2">
+                Website by Sujit Baram (Concept)
+            </p>
+        </div>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=%2B918967992203&text=Hello%2C%20I%20have%20a%20question."
-        target="_blank" rel="noopener noreferrer" class="floating-whatsapp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <script>
-        // Language content
-        const translations = {
-            en: {
-                shopName: "Friends Computer and Mobile",
-                langSwitchToBengali: "বাংলা",
-                welcomeTitle: "Welcome to Friends Computer and Mobile",
-                shopDescription: "Your one-stop shop for smartphones, computers, laptops, printers, and all kinds of accessories. We provide reliable repair services and exciting EMI options.",
-                galleryTitle: "Our Shop Gallery",
-                hotOffers: "Hot Offers",
-                offer1Name: "Budget PC",
-                offer1Price: "Starting from ₹7000",
-                offer2Name: "Motorola Edge 50 Fusion 5G",
-                offer2Price: "Starting from ₹21,000",
-                interestedButton: "I'm Interested",
-                ourServices: "Our Services",
-                serviceSmartphones: "Smartphones & Computers",
-                serviceSmartphonesDesc: "Latest models of smartphones, laptops, and desktop computers.",
-                servicePrinters: "Printers & Accessories",
-                servicePrintersDesc: "Wide range of printers and computer accessories.",
-                serviceRepairs: "Repair Services",
-                serviceRepairsDesc: "Expert repair for laptops, computers, and mobiles.",
-                serviceEMI: "EMI Options",
-                serviceEMIDesc: "Flexible EMI options available on various products.",
-                serviceCustomPC: "Custom PC Builds",
-                serviceCustomPCDesc: "We build custom PCs tailored to your needs.",
-                serviceHomeElectronics: "Home Electronics",
-                serviceHomeElectronicsDesc: "WiFi routers, CCTV, speakers, smart lights, and more.",
-                contactUs: "Contact Us",
-                getInTouch: "Get in Touch",
-                contactPerson: "Contact Person:",
-                phone: "Phone:",
-                address: "Address:",
-                connectWithUs: "Connect With Us",
-                shopNameFooter: "Friends Computer and Mobile",
-                rightsReserved: "All Rights Reserved."
-            },
-            bn: {
-                shopName: "ফ্রেন্ডস কম্পিউটার অ্যান্ড মোবাইল",
-                langSwitchToBengali: "English",
-                welcomeTitle: "ফ্রেন্ডস কম্পিউটার অ্যান্ড মোবাইলে স্বাগতম",
-                shopDescription: "স্মার্টফোন, কম্পিউটার, ল্যাপটপ, প্রিন্টার এবং সব ধরনের আনুষাঙ্গিক জিনিসের জন্য আপনার ওয়ান-স্টপ শপ। আমরা নির্ভরযোগ্য মেরামত পরিষেবা এবং আকর্ষণীয় ইএমআই বিকল্প সরবরাহ করি।",
-                galleryTitle: "আমাদের শপের গ্যালারি",
-                hotOffers: "আকর্ষণীয় অফার",
-                offer1Name: "বাজেট পিসি",
-                offer1Price: "₹7000 থেকে শুরু",
-                offer2Name: "Motorola Edge 50 Fusion 5G",
-                offer2Price: "₹21,000 থেকে শুরু",
-                interestedButton: "আমি আগ্রহী",
-                ourServices: "আমাদের সেবাসমূহ",
-                serviceSmartphones: "স্মার্টফোন ও কম্পিউটার",
-                serviceSmartphonesDesc: "স্মার্টফোন, ল্যাপটপ এবং ডেস্কটপ কম্পিউটারের সর্বশেষ মডেল।",
-                servicePrinters: "প্রিন্টার ও আনুষাঙ্গিক",
-                servicePrintersDesc: "প্রিন্টার এবং কম্পিউটার আনুষাঙ্গিকের বিস্তৃত পরিসর।",
-                serviceRepairs: "মেরামত পরিষেবা",
-                serviceRepairsDesc: "ল্যাপটপ, কম্পিউটার এবং মোবাইলের জন্য বিশেষজ্ঞ মেরামত।",
-                serviceEMI: "ইএমআই বিকল্প",
-                serviceEMIDesc: "বিভিন্ন পণ্যে নমনীয় ইএমআই বিকল্প উপলব্ধ।",
-                serviceCustomPC: "কাস্টম পিসি বিল্ড",
-                serviceCustomPCDesc: "আমরা আপনার প্রয়োজন অনুযায়ী কাস্টম পিসি তৈরি করি।",
-                serviceHomeElectronics: "হোম ইলেকট্রনিক্স",
-                serviceHomeElectronicsDesc: "ওয়াইফাই রাউটার, সিসিটিভি, স্পিকার, স্মার্ট লাইট এবং আরও অনেক কিছু।",
-                contactUs: "যোগাযোগ করুন",
-                getInTouch: "যোগাযোগ করুন",
-                contactPerson: "যোগাযোগকারী ব্যক্তি:",
-                phone: "ফোন:",
-                address: "ঠিকানা:",
-                connectWithUs: "আমাদের সাথে সংযোগ করুন",
-                shopNameFooter: "ফ্রেন্ডস কম্পিউটার অ্যান্ড মোবাইল",
-                rightsReserved: "সর্বস্বত্ব সংরক্ষিত।"
-            }
-        };
 
-        let currentLang = 'en'; // Default language
+        const SHEET_ID = '1_4ucX3MMVYUiiyoP9aoK0OoIn1Y4qtYVg0zhTTjRF_A';
 
-        const langToggleButton = document.getElementById('langToggle');
-        const allLangElements = document.querySelectorAll('[data-lang-key]');
+        /**
+         * Fetches a sheet and returns an array of row‑objects.
+         * Relies on the public "gviz" JSON format.
+         */
+        async function fetchSheet(sheetName) {
+            const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${encodeURIComponent(sheetName)}&tq=`;
+            const res = await fetch(url);
+            const text = await res.text();
 
-        function updateTexts() {
-            allLangElements.forEach(el => {
-                const key = el.getAttribute('data-lang-key');
-                if (translations[currentLang] && translations[currentLang][key]) {
-                    el.textContent = translations[currentLang][key];
-                }
-            });
-            // Update language toggle button text
-            if (langToggleButton) { // Ensure button exists
-                const langToggleSpan = langToggleButton.querySelector('span');
-                if (langToggleSpan) {
-                    if (currentLang === 'en') {
-                        langToggleSpan.textContent = translations.en.langSwitchToBengali;
-                    } else {
-                        langToggleSpan.textContent = translations.bn.langSwitchToBengali;
-                    }
-                }
-            }
-        }
+            const match = text.match(/setResponse\(([\s\S]+)\)/);
+            if (!match) throw new Error("Unexpected sheet format");
 
-        if (langToggleButton) {
-            langToggleButton.addEventListener('click', () => {
-                currentLang = currentLang === 'en' ? 'bn' : 'en';
-                updateTexts();
-            });
-        }
+            const json = JSON.parse(match[1]);
+            const rows = json.table.rows;
 
-        function handleInterest(productName, productPrice) {
-            const phoneNumber = "918967992203"; // Make sure this is the correct number
-            const message = `Hello, I'm interested in the ${productName} (${productPrice}). Can you please provide more details?`;
-            const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-            window.open(whatsappURL, '_blank');
-        }
+            if (rows.length === 0) return [];
 
-        const currentYearEl = document.getElementById('currentYear');
-        if (currentYearEl) {
-            currentYearEl.textContent = new Date().getFullYear();
-        }
+            // 1) Extract header names from the first row
+            const headerRow = rows[0].c.map(cell => (cell && cell.v) || '');
 
-        updateTexts(); // Initialize texts on page load
-
-        // Image Slider Logic
-        const sliderElement = document.getElementById('shopImageSlider');
-        if (sliderElement) {
-            const track = sliderElement.querySelector('.slider-track');
-            const slides = Array.from(track.children);
-            const nextButton = document.getElementById('sliderNextBtn');
-            const prevButton = document.getElementById('sliderPrevBtn');
-            const dotsContainer = document.getElementById('sliderDots');
-
-            let currentSlideIndex = 0;
-            const numSlides = slides.length;
-            let autoSlideInterval;
-
-            if (numSlides > 0) {
-                // Create navigation dots
-                if (dotsContainer) {
-                    slides.forEach((_, index) => {
-                        const dot = document.createElement('button');
-                        dot.classList.add('slider-dot');
-                        dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-                        dot.addEventListener('click', () => {
-                            goToSlide(index);
-                            resetAutoSlide(); // Reset timer when dot is clicked
-                        });
-                        dotsContainer.appendChild(dot);
-                    });
-                }
-
-                const updateDots = () => {
-                    if (dotsContainer) {
-                        const dots = Array.from(dotsContainer.children);
-                        dots.forEach((dot, index) => {
-                            dot.classList.toggle('active', index === currentSlideIndex);
-                        });
-                    }
-                };
-
-                const goToSlide = (slideIndex) => {
-                    if (slideIndex < 0) {
-                        slideIndex = numSlides - 1;
-                    } else if (slideIndex >= numSlides) {
-                        slideIndex = 0;
-                    }
-                    track.style.transform = `translateX(-${slideIndex * 100}%)`;
-                    currentSlideIndex = slideIndex;
-                    updateDots();
-                };
-
-                if (nextButton && prevButton) {
-                    nextButton.addEventListener('click', () => {
-                        goToSlide(currentSlideIndex + 1);
-                        resetAutoSlide();
-                    });
-
-                    prevButton.addEventListener('click', () => {
-                        goToSlide(currentSlideIndex - 1);
-                        resetAutoSlide();
-                    });
-                }
-
-                const startAutoSlide = (interval = 5000) => {
-                    stopAutoSlide(); // Clear any existing interval
-                    if (numSlides > 1) { // Only start auto-slide if there's more than one slide
-                        autoSlideInterval = setInterval(() => {
-                            goToSlide(currentSlideIndex + 1);
-                        }, interval);
-                    }
-                };
-
-                const stopAutoSlide = () => {
-                    clearInterval(autoSlideInterval);
-                };
-
-                const resetAutoSlide = () => {
-                    stopAutoSlide();
-                    startAutoSlide();
-                };
-
-                // Initialize slider
-                goToSlide(0);
-                startAutoSlide();
-
-                // Pause on hover
-                sliderElement.addEventListener('mouseenter', stopAutoSlide);
-                sliderElement.addEventListener('mouseleave', startAutoSlide);
-
-                // Keyboard navigation for accessibility
-                sliderElement.addEventListener('keydown', (e) => {
-                    if (e.key === 'ArrowRight') {
-                        goToSlide(currentSlideIndex + 1);
-                        resetAutoSlide();
-                    } else if (e.key === 'ArrowLeft') {
-                        goToSlide(currentSlideIndex - 1);
-                        resetAutoSlide();
-                    }
+            // 2) Process each subsequent row
+            return rows.slice(1).map(r => {
+                const obj = {};
+                r.c.forEach((cell, i) => {
+                    const key = headerRow[i] || `col_${i}`;
+                    obj[key] = cell ? cell.v : '';
                 });
-                // Make slider focusable for keyboard navigation
-                sliderElement.setAttribute('tabindex', '0');
-            }
-        }
-        // The smooth scroll JS for the removed <nav> links has been omitted.
-        // Corrected Google Maps Embed URL
-        const mapFrame = document.querySelector('.map-container iframe');
-        if (mapFrame && mapFrame.src.includes('googleusercontent.com')) {
-            // Replace with a valid Google Maps embed URL for "Friends Computer & Mobile, Jamna Barbatia Road, Dujipur, West Bengal 721140"
-            // I've found a plausible one, but it's best to get the exact one from Google Maps "Share > Embed a map" feature.
-            mapFrame.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4600.041696678566!2d87.5009061760362!3d22.294287143112054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1d4bb03703760f%3A0x58a6b4102f572595!2sFriends%20Computer%20and%20Mobile!5e1!3m2!1sen!2sin!4v1747151301507!5m2!1sen!2sin";
-        }
-
-        const SHEET_URL = 'https://opensheet.elk.sh/1zsPu7tfVchtbQVO6n7HAFhSPzyf3gjd60R-ikMR1aNI/Sheet1';
-
-        fetch(SHEET_URL)
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById('offers-container');
-                data.forEach(item => {
-                    const card = document.createElement('div');
-                    card.className = 'card p-6 flex flex-col items-center';
-                    card.innerHTML = `
-                    <img src="${item.image}" alt="${item.alt}" class="w-full h-64 object-contain rounded-md mb-4"
-                        onerror="this.onerror=null;this.src='https://placehold.co/400x300/2d3748/e2e8f0?text=${encodeURIComponent(item.alt)}';">
-                    <h3 class="text-xl font-semibold mb-2">${item.name}</h3>
-                    <p class="text-lg text-blue-400 mb-4">${item.price}</p>
-                    <button class="btn btn-primary w-full sm:w-auto"
-                        onclick="handleInterest('${item.name}', '${item.price}')">I'm Interested</button>
-                `;
-                    container.appendChild(card);
-                });
-            })
-            .catch(err => {
-                console.error('Error fetching sheet data:', err);
+                return obj;
             });
+        }
+
+
+        /**
+         * Given an array of deal‑objects and a container element,
+         * dynamically appends .offer-card nodes.
+         */
+        function renderDeals(deals, containerEl) {
+            deals.forEach(deal => {
+                const card = document.createElement('div');
+                card.className = 'offer-card flex flex-col bg-white dark:bg-gray-800 p-4 rounded-xl shadow hover:shadow-md transition-transform duration-300';
+                card.dataset.productName = deal['Product Name'];
+                card.dataset.productPrice = deal['Offer Price'];
+                card.dataset.productDetails = deal['Product Details'];
+
+                card.innerHTML = `
+        <img
+          src="${deal['Image URL']}"
+          alt="${deal['Product Name']}"
+          class="product-image mb-4 rounded-lg object-cover w-full h-48"
+          onerror="this.src='https://placehold.co/400x300/cccccc/333333?text=Image+Not+Found'"
+        >
+        <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-1 product-title">
+          ${deal['Product Name']}
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300 text-xs mb-2 flex-grow product-description">
+          ${deal['Product Details']}
+        </p>
+        <div class="my-2">
+          <span class="offer-price product-offer-price">${deal['Offer Price']}</span>
+          ${deal['Original Price'] ? `<span class="original-price line-through text-gray-500 ml-2">${deal['Original Price']}</span>` : ''}
+        </div>
+        ${deal['EMI Info'] ? `<p class="emi-info text-sm text-gray-700 dark:text-gray-400">EMI from ${deal['EMI Info']}</p>` : ''}
+        <button class="interested-button btn btn-whatsapp w-full mt-auto flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold shadow hover:scale-105 transition-transform duration-300">
+          <svg class="whatsapp-icon" aria-hidden="true">
+            <use xlink:href="#whatsapp-logo"></use>
+          </svg>
+          Interested?
+        </button>
+      `;
+                containerEl.appendChild(card);
+            });
+        }
+
+        /** Orchestrator */
+        async function populateOffers() {
+            const mobileDeals = await fetchSheet('Top Mobile Deals');
+            renderDeals(mobileDeals, document.getElementById('mobile-deals'));
+
+            const computerDeals = await fetchSheet('Computers & Laptops on Sale');
+            renderDeals(computerDeals, document.getElementById('computer-deals'));
+
+
+            const homeApplianceDeals = await fetchSheet('Home Appliances Deals');
+            console.log(homeApplianceDeals);
+            renderDeals(homeApplianceDeals, document.getElementById('home-appliance-deals'));
+
+            const essentialAccessoriesDeal = await fetchSheet('Electronics & Accessories Deals');
+            console.log(essentialAccessoriesDeal);
+            renderDeals(essentialAccessoriesDeal, document.getElementById('essential-accessories-deals'));
+
+            document.querySelectorAll('.interested-button').forEach(button => {
+                button.addEventListener('click', function () {
+                    const card = this.closest('.offer-card');
+                    const productName = card.dataset.productName || "Selected Product";
+                    const productPrice = card.dataset.productPrice || "";
+                    const productDetails = card.dataset.productDetails || "";
+
+                    let whatsappMessage = `Hello Friends Computer & Mobile,\n\n` +
+                        `I'm interested in the following product:\n\n` +
+                        `*Product:* ${productName}\n`;
+
+                    if (productPrice) whatsappMessage += `*Price:* ${productPrice}\n`;
+                    if (productDetails) whatsappMessage += `*Details:* ${productDetails}\n`;
+
+                    whatsappMessage += `\nPlease provide more information. Thank you!`;
+
+                    const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}` +
+                        `&text=${encodeURIComponent(whatsappMessage)}`;
+                    window.open(whatsappURL, '_blank');
+                });
+            });
+        }
+
+        // Kick it off when DOM is ready
+        document.addEventListener('DOMContentLoaded', populateOffers);
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.getItem('darkMode') === 'true' ||
+            (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        } else {
+            htmlElement.classList.remove('dark');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            sunIcon.classList.toggle('hidden');
+            moonIcon.classList.toggle('hidden');
+            localStorage.setItem('darkMode', htmlElement.classList.contains('dark') ? 'true' : 'false');
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.hash !== "") {
+                    const targetElement = document.querySelector(this.hash);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // WhatsApp Integration
+        const whatsappNumber = "+918967992203"; // Replace with your WhatsApp number
+
+        // Contact Form WhatsApp Submission
+        const contactForm = document.getElementById('whatsappContactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const name = document.getElementById('contactName').value;
+                const message = document.getElementById('contactMessage').value;
+
+                if (name.trim() === '' || message.trim() === '') {
+                    alert('Please fill in both name and message fields.');
+                    return;
+                }
+
+                let whatsappMessage = `Hello, my name is ${name}.\n\nI have an inquiry:\n${message}`;
+                whatsappMessage = encodeURIComponent(whatsappMessage);
+                const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${whatsappMessage}`;
+                window.open(whatsappURL, '_blank');
+                contactForm.reset(); // Optionally reset the form
+            });
+        }
+
+        (function () {
+            const carousel = document.getElementById('storeCarousel');
+            const slides = carousel.children.length;
+            let idx = 0;
+
+            setInterval(() => {
+                idx = (idx + 1) % slides;
+                carousel.style.transform = `translateX(-${idx * 100}%)`;
+            }, 3000);
+        })();
 
     </script>
 </body>
