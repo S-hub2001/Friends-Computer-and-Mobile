@@ -49,6 +49,22 @@
         }
     </script>
     <style>
+        #top-hot-deals-slider {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        #top-hot-deals-slider>div {
+            scroll-snap-align: start;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
         /* Custom scrollbar for webkit browsers */
         ::-webkit-scrollbar {
             width: 8px;
@@ -231,18 +247,30 @@
                     <span class="text-yellow-300">UNBEATABLE</span> DEALS AWAIT!
                 </h1>
                 <p class="text-xl md:text-2xl text-indigo-100 dark:text-indigo-200 mb-10 max-w-3xl mx-auto">
-                    Massive discounts on Mobiles, Laptops, Home Appliances & More. Flexible <strong
-                        class="text-yellow-300">EMI Options</strong> available!
+                    Massive discounts on Mobiles, Laptops, Home Appliances & More. Flexible
+                    <strong class="text-yellow-300">EMI Options</strong> available!
                 </p>
-                <a href="#hot-offers" class="btn btn-accent text-lg px-10 py-4 shadow-lg transform hover:scale-105">
-                    <span role="img" aria-label="fire emoji" class="mr-2">🔥</span> Explore Hot Offers NOW <span
-                        role="img" aria-label="fire emoji" class="ml-2">🔥</span>
+
+
+                <section id="top-hot-deals" class="relative w-full overflow-hidden">
+                    <div id="top-hot-deals-slider" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth">
+                        <!-- Slides inserted dynamically here -->
+                    </div>
+                </section>
+
+
+                <a href="#hot-offers"
+                    class="btn btn-accent text-lg px-10 py-4 shadow-lg transform hover:scale-105 mt-10 inline-block">
+                    <span role="img" aria-label="fire emoji" class="mr-2">🔥</span> Explore Hot Offers NOW
+                    <span role="img" aria-label="fire emoji" class="ml-2">🔥</span>
                 </a>
                 <a href="#contact"
-                    class="ml-0 mt-4 sm:mt-0 sm:ml-4 btn bg-white text-primary hover:bg-gray-100 text-lg px-8 py-4 inline-block">Contact
-                    Us</a>
+                    class="ml-0 mt-4 sm:mt-0 sm:ml-4 btn bg-white text-primary hover:bg-gray-100 text-lg px-8 py-4 inline-block">
+                    Contact Us
+                </a>
             </div>
         </section>
+
         <section id="hot-offers" class="py-16 md:py-24 bg-gray-100 dark:bg-neutral-dark">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="section-title">
@@ -744,12 +772,128 @@
           <svg class="whatsapp-icon" aria-hidden="true">
             <use xlink:href="#whatsapp-logo"></use>
           </svg>
-          Interested?
+          Buy Now
         </button>
       `;
                 containerEl.appendChild(card);
             });
         }
+
+
+        function renderTopHotDealsSlide(deals, container) {
+            if (!deals || deals.length === 0 || !container) return;
+
+            container.innerHTML = '';
+
+            deals.forEach(deal => {
+                const slide = document.createElement('div');
+                slide.className = `min-w-full h-[420px] sm:h-[500px] md:h-[600px] relative snap-start 
+                          flex-shrink-0 overflow-hidden rounded-none sm:rounded-xl mx-0 sm:mx-2 
+                          shadow-lg sm:shadow-2xl`;
+
+                slide.innerHTML = `
+            <!-- Background Image with Gradient Overlay -->
+            <div class="absolute inset-0 bg-cover bg-center transform transition-transform 
+                      duration-500 hover:scale-105" 
+                 style="background-image: url('${deal['Image URL']}');">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent"></div>
+            </div>
+
+            <!-- Content Container -->
+            <div class="relative z-10 h-full w-full flex flex-col justify-end items-start 
+                       text-left p-6 sm:p-8 md:p-12">
+                <!-- Badge -->
+                <div class="bg-red-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full 
+                          mb-3 sm:mb-4 text-xs sm:text-sm font-bold animate-pulse">
+                    LIMITED TIME OFFER
+                </div>
+                
+                <!-- Product Info -->
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 sm:mb-4 
+                          leading-snug sm:leading-tight max-w-2xl">
+                    ${deal['Product Name']}
+                </h2>
+                
+                <!-- Price Section -->
+                <div class="flex flex-col sm:flex-row items-baseline gap-2 sm:gap-4 mb-3 sm:mb-4">
+                    <div class="bg-white/20 p-2 sm:p-3 rounded-lg">
+                        <span class="text-xl sm:text-2xl md:text-3xl font-bold text-green-400">
+                            ${deal['Offer Price']}
+                        </span>
+                        <span class="text-sm sm:text-base text-gray-300 line-through ml-2">
+                            ${deal['Original Price']}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Details -->
+                <p class="text-base sm:text-lg md:text-xl text-gray-200 mb-4 sm:mb-6 max-w-xl 
+                         line-clamp-3">
+                    ${deal['Product Details']}
+                </p>
+                
+                <!-- CTA & EMI Info -->
+                <div class="flex flex-col gap-2 sm:gap-4 w-full">
+                    <p class="text-xs sm:text-sm text-gray-300 italic text-center sm:text-left">
+                        ${deal['EMI Info']}
+                    </p>
+                </div>
+            </div>
+        `;
+
+                container.appendChild(slide);
+            });
+        }
+        let currentSlide = 0;
+        let autoScrollInterval = null;
+        let isHovered = false;
+
+        function startAutoScroll(sliderId) {
+            const slider = document.getElementById(sliderId);
+            if (!slider) return;
+
+            // Clear existing interval
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+            }
+
+            // Pause on hover
+            slider.addEventListener('mouseenter', () => isHovered = true);
+            slider.addEventListener('mouseleave', () => isHovered = false);
+
+            autoScrollInterval = setInterval(() => {
+                if (isHovered || document.hidden) return;
+
+                const slides = slider.querySelectorAll(':scope > div');
+                if (slides.length <= 1) return;
+
+                // Get slider and slide dimensions
+                const slideWidth = slides[0].offsetWidth;
+                const maxScroll = slideWidth * (slides.length - 1);
+
+                // Calculate new scroll position
+                let newScroll = slider.scrollLeft + slideWidth;
+
+                // Reset to first slide if at end
+                if (newScroll > maxScroll) {
+                    newScroll = 0;
+                    // Instant reset without animation
+                    slider.scrollTo({ left: 0, behavior: 'auto' });
+                } else {
+                    // Smooth scroll within slider
+                    slider.scrollTo({
+                        left: newScroll,
+                        behavior: 'smooth'
+                    });
+                }
+
+                currentSlide = Math.floor(newScroll / slideWidth);
+            }, 5000);
+        }
+
+        // Initialize with your slider ID
+        startAutoScroll('top-hot-deals-slider');
+
 
         /** Orchestrator */
         async function populateOffers() {
@@ -761,12 +905,13 @@
 
 
             const homeApplianceDeals = await fetchSheet('Home Appliances Deals');
-            console.log(homeApplianceDeals);
             renderDeals(homeApplianceDeals, document.getElementById('home-appliance-deals'));
 
             const essentialAccessoriesDeal = await fetchSheet('Electronics & Accessories Deals');
-            console.log(essentialAccessoriesDeal);
             renderDeals(essentialAccessoriesDeal, document.getElementById('essential-accessories-deals'));
+
+            const topHotDeals = await fetchSheet('Top Hot Offers');
+            renderTopHotDealsSlide(topHotDeals, document.getElementById('top-hot-deals-slider'));
 
             document.querySelectorAll('.interested-button').forEach(button => {
                 button.addEventListener('click', function () {
