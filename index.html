@@ -199,6 +199,10 @@
             height: 20px;
             margin-right: 8px;
         }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
 
@@ -783,34 +787,37 @@
         function renderTopHotDealsSlide(deals, container) {
             if (!deals || deals.length === 0 || !container) return;
 
+            // Reset container and set styles to hide scrollbar
             container.innerHTML = '';
+            container.style.overflowX = 'auto'; // Allow horizontal scrolling
+            container.style.scrollSnapType = 'x mandatory'; // Enable scroll snapping
+            // Scrollbar hiding techniques
+            container.style.msOverflowStyle = 'none'; // IE/Edge
+            container.style.scrollbarWidth = 'none'; // Firefox
+
+            // Add CSS class for WebKit browsers (should be defined in your CSS)
+            container.classList.add('hide-scrollbar');
 
             deals.forEach(deal => {
                 const slide = document.createElement('div');
-                slide.className = `min-w-full h-[420px] sm:h-[500px] md:h-[600px] relative snap-start 
-                          flex-shrink-0 overflow-hidden rounded-none sm:rounded-xl mx-0 sm:mx-2 
-                          shadow-lg sm:shadow-2xl`;
+                slide.className = 'min-w-full h-[420px] sm:h-[500px] md:h-[600px] relative snap-start flex-shrink-0 overflow-hidden rounded-none sm:rounded-xl mx-0 sm:mx-2 shadow-lg sm:shadow-2xl';
 
                 slide.innerHTML = `
             <!-- Background Image with Gradient Overlay -->
-            <div class="absolute inset-0 bg-cover bg-center transform transition-transform 
-                      duration-500 hover:scale-105" 
+            <div class="absolute inset-0 bg-cover bg-center transform transition-transform duration-500 hover:scale-105" 
                  style="background-image: url('${deal['Image URL']}');">
                 <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent"></div>
             </div>
 
             <!-- Content Container -->
-            <div class="relative z-10 h-full w-full flex flex-col justify-end items-start 
-                       text-left p-6 sm:p-8 md:p-12">
+            <div class="relative z-10 h-full w-full flex flex-col justify-end items-start text-left p-6 sm:p-8 md:p-12">
                 <!-- Badge -->
-                <div class="bg-red-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full 
-                          mb-3 sm:mb-4 text-xs sm:text-sm font-bold animate-pulse">
+                <div class="bg-red-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full mb-3 sm:mb-4 text-xs sm:text-sm font-bold animate-pulse">
                     LIMITED TIME OFFER
                 </div>
                 
                 <!-- Product Info -->
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 sm:mb-4 
-                          leading-snug sm:leading-tight max-w-2xl">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 sm:mb-4 leading-snug sm:leading-tight max-w-2xl">
                     ${deal['Product Name']}
                 </h2>
                 
@@ -827,8 +834,7 @@
                 </div>
 
                 <!-- Details -->
-                <p class="text-base sm:text-lg md:text-xl text-gray-200 mb-4 sm:mb-6 max-w-xl 
-                         line-clamp-3">
+                <p class="text-base sm:text-lg md:text-xl text-gray-200 mb-4 sm:mb-6 max-w-xl line-clamp-3">
                     ${deal['Product Details']}
                 </p>
                 
@@ -844,6 +850,8 @@
                 container.appendChild(slide);
             });
         }
+
+
         let currentSlide = 0;
         let autoScrollInterval = null;
         let isHovered = false;
